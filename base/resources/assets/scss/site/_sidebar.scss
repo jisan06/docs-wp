@@ -1,0 +1,42 @@
+.easydoc_list_layout {
+  @include clearfix;
+}
+
+.easydoc_list__sidebar {
+  display: block;
+  overflow: auto;
+  margin-bottom: 1em;
+
+  @media (min-width:600px) {
+    float: left;
+    width: 23%;
+    margin-right: 2%;
+
+    @include rtl {
+      float: right;
+      margin-right: 0;
+      margin-left: 2%;
+    }
+  }
+
+  @media (min-width:960px) {
+    width: 32%;
+  }
+}
+
+.easydoc_list__content {
+  display: block;
+
+  @media (min-width:600px) {
+    float: left;
+    width: 75%;
+
+    @include rtl {
+      float: right;
+    }
+  }
+
+  @media (min-width:960px) {
+    width: 66%;
+  }
+}

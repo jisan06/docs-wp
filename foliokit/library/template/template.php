@@ -1,0 +1,197 @@
+<?php
+/**
+ * FolioKit
+ *
+ * @copyright   Copyright (C) 2015 Johan Janssens and Timble CVBA. (http://www.timble.net)
+ * @license     GNU GPLv3 <http://www.gnu.org/licenses/gpl.html>
+ * @link        https://github.com/easydoclabs/foliokit for the canonical source repository
+ */
+
+namespace EasyDocLabs\Library;
+
+/**
+ * Template
+ *
+ * @author  Johan Janssens <http://github.com/johanjanssens>
+ * @package EasyDocLabs\Library\Template
+ */
+class Template extends TemplateAbstract
+{
+    /**
+     * The template parameters
+     *
+     * @var ObjectConfigInterface
+     */
+    private $__parameters;
+
+    /**
+     * Excluded types
+     *
+     * @var array
+     */
+    protected $_excluded_types;
+
+    /**
+     * Constructor
+     *
+     * Prevent creating instances of this class by making the constructor private
+     *
+     * @param ObjectConfig $config   An optional ObjectConfig object with configuration options
+     */
+    public function __construct(ObjectConfig $config)
+    {
+        parent::__construct($config);
+
+        //Set the parameters
+        $this->setParameters($config->parameters);
+
+        //Set the excluded types
+        $this->_excluded_types = ObjectConfig::unbox($config->excluded_types);
+
+        // Mixin the behavior (and command) interface
+        $this->mixin('lib:behavior.mixin', $config);
+    }
+
+    /**
+     * Initializes the options for the object
+     *
+     * Called from {@link __construct()} as a first step of object instantiation.
+     *
+     * @param  ObjectConfig $config  An optional ObjectConfig object with configuration options.
+     * @return void
+     */
+    protected function _initialize(ObjectConfig $config)
+    {
+        $config->append(array(
+            'behaviors'  => array('helperable'),
+            'parameters' => array(),
+            'filters'    => array(),
+            'functions'  => array(
+                'escape'     => array(__NAMESPACE__.'\StringEscaper', 'escape'),
+                'parameter'  => array($this, 'getParameter'),
+                'parameters' => array($this, 'getParameters')
+            ),
+            'excluded_types'  => array('html'),
+        ))->append(array(
+            'behaviors'  => array('filterable' => array('filters' => $config->filters)),
+        ));
+
+        parent::_initialize($config);
+    }
+
+    /**
+     * Render a template
+     *
+     * @param   string  $source  A template url or string content
+     * @param   array   $data    An associative array of data to be extracted in local template scope
+     * @param   string  $type    The template type when the source is a string and not a url
+     * @return  string  The rendered template source
+     */
+    final public function render($source, array $data = array(), $type = null)
+    {
+        $context = $this->getContext();
+        $context->data   = $data;
+        $context->source = $source;
+        $context->type   = $type;
+
+        //If content is a path find the type by locating the file
+        if($this->getObject('filter.path')->validate($source))
+        {
+            if (!$file = $this->getObject('template.locator.factory')->locate($source)) {
+                throw new \InvalidArgumentException(sprintf('The template "%s" cannot be located.', $source));
+            }
+
+            $context->type = pathinfo($file, PATHINFO_EXTENSION);
+        }
+
+        if ($this->invokeCommand('before.render', $context) !== false)
+        {
+            //Render the template
+            $context->result = $this->_actionRender($context);
+            $this->invokeCommand('after.render', $context);
+        }
+
+        return $context->result;
+    }
+
+    /**
+     * Render the template
+     *
+     * @param TemplateContext   $context A template context object
+     * @return string  The output of the template
+     */
+    protected function _actionRender(TemplateContext $context)
+    {
+        $source = parent::render($context->source, ObjectConfig::unbox($context->data));
+
+        if($context->type && !in_array($context->type, $this->_excluded_types))
+        {
+            $source = $this->getObject('template.engine.factory')
+                ->createEngine($context->type, array('functions' => $this->getFunctions()))
+                ->render($source, $this->getData());
+        }
+
+        return $source;
+    }
+
+    /**
+     * Set the template parameters
+     *
+     * @param  array $parameters Set the template parameters
+     * @return Template
+     */
+    public function setParameters($parameters)
+    {
+        $this->__parameters = new ObjectConfig($parameters);
+        return $this;
+    }
+
+    /**
+     * Get the template parameters
+     *
+     * @return ObjectConfigInterface
+     */
+    public function getParameters()
+    {
+        return $this->__parameters;
+    }
+
+    /*
+     * Get a template parameter by name
+     *
+     * @param string $name      The name of the parameter
+     * @param string $default   The default value if the parameter does not exist
+     * @return ObjectConfigInterface
+     */
+    public function getParameter($name, $default = null)
+    {
+        return $this->__parameters->get($name, $default);
+    }
+
+    /**
+     * Get the template context
+     *
+     * @param   TemplateContextInterface $context Context to cast to a local context
+     * @return  TemplateContext
+     */
+    public function getContext(TemplateContextInterface $context = null)
+    {
+        $context = new TemplateContext($context);
+        $context->setData($this->getData());
+        $context->setParameters($this->getParameters());
+
+        return $context;
+    }
+
+    /**
+     * Deep clone of this instance
+     *
+     * @return void
+     */
+    public function __clone()
+    {
+        parent::__clone();
+
+        $this->__parameters = clone $this->__parameters;
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "bootstrap": {
+        "identifier": "com:activities",
+        "namespace": "EasyDocLabs\\Component\\Activities"
+    }
+}

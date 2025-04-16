@@ -1,0 +1,7 @@
+{
+    "bootstrap": {
+        "identifier": "com:migrator",
+        "extends": "com:base",
+        "namespace": "EasyDocLabs\\Component\\Migrator"
+    }
+}

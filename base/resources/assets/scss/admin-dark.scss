@@ -1,0 +1,16 @@
+// Custom variables and mixins
+@import "generic/variables";
+
+@import "../../../../foliokit/component/base/resources/assets/scss/admin-dark";
+
+// Select2
+@import "generic/namespaceless-dark";
+@import "admin/wordpress-overrides";
+
+// Namespacing with Koowa
+.k-ui-namespace
+{
+  @import "admin/admin-dark";
+  @import "admin/overrides";
+  @import "admin/overrides-dark";
+}

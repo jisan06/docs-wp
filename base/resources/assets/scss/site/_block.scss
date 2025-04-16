@@ -1,0 +1,19 @@
+// Block
+.easydoc_block {
+  @include clearfix();
+  position: relative;
+  display: table;
+  width: 100%;
+}
+
+.easydoc_block__item {
+  display: table-cell;
+
+  .koowa_header {
+    margin: 0;
+  }
+}
+
+.easydoc_block--top_margin {
+  margin-top: $smallMargin;
+}

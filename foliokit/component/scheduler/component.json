@@ -1,0 +1,6 @@
+{
+    "bootstrap": {
+        "identifier": "com:scheduler",
+        "namespace": "EasyDocLabs\\Component\\Scheduler"
+    }
+}

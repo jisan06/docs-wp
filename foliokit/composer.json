@@ -1,0 +1,16 @@
+{
+  "name": "easydocs",
+  "description": "Document management system",
+  "type": "project",
+  "require": {
+    "imagine/imagine": "0.6.3",
+    "mtdowling/cron-expression": "1.1.0"
+  },
+  "license": "MIT",
+  "minimum-stability": "stable",
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  }
+}

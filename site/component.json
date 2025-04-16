@@ -1,0 +1,7 @@
+{
+    "bootstrap" : {
+        "identifier": "com://site/easydoc",
+        "namespace": "EasyDocLabs\\EasyDoc\\Site",
+        "extends": "com:easydoc"
+    }
+}

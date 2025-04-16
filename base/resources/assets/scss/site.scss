@@ -1,0 +1,33 @@
+
+// Custom variables and mixins
+@import "generic/variables";
+
+@import "../../../../foliokit/component/base/resources/assets/scss/site";
+
+// Select2
+@import "generic/namespaceless";
+
+// Namespacing with Koowa
+.k-ui-namespace {
+  @import "generic/mixins";
+
+
+  // Front
+  @import "site/block";
+  @import "site/breadcrumb";
+  @import "site/categories";
+  @import "site/document";
+  @import "site/download";
+  @import "site/filters";
+  @import "site/gallery";
+  @import "site/labels";
+  @import "site/pane_toggler";
+  @import "site/sidebar";
+  @import "site/thumbnail";
+  @import "site/tree";
+  @import "site/utilities";
+
+  // Photoswipe
+  @import "photoswipe/main";
+  @import "photoswipe/default-skin/default-skin";
+}

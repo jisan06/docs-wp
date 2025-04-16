@@ -1,0 +1,27 @@
+/**
+ * Default Wordpress theme
+ * =======================
+ * Styled to fit nicely within the Wordpress admin layout
+ */
+
+
+/**
+ * Wordpress variables & mixins
+ * ----------------------------
+ * 1. Load first to win over "!default" variables defined in core/_tools.scss
+ * 2. Can't override the core mixins, only create new ones here
+ */
+
+@import "admin/variables"; // 1
+@import "admin/mixins"; // 2
+
+@import "../../../../../../../../tools/kodekit-ui/src/scss/admin-ui";
+
+
+/**
+ * Wordpress specific
+ * ------------------
+ * Styles that apply to the Wordpress admin
+ */
+
+@import "admin/backend";

@@ -1,0 +1,25 @@
+DROP TABLE IF EXISTS `#__easydoc_categories_users`;
+DROP TABLE IF EXISTS `#__easydoc_categories_usergroups`;
+DROP TABLE IF EXISTS `#__easydoc_usergroups_users`;
+DROP TABLE IF EXISTS `#__easydoc_category_group_access`;
+DROP TABLE IF EXISTS `#__easydoc_document_group_access`;
+DROP TABLE IF EXISTS `#__easydoc_categories`;
+DROP TABLE IF EXISTS `#__easydoc_category_folders`;
+DROP TABLE IF EXISTS `#__easydoc_category_orderings`;
+DROP TABLE IF EXISTS `#__easydoc_category_relations`;
+DROP TABLE IF EXISTS `#__easydoc_document_contents`;
+DROP TABLE IF EXISTS `#__easydoc_documents`;
+DROP TABLE IF EXISTS `#__easydoc_files`;
+DROP TABLE IF EXISTS `#__easydoc_folders`;
+DROP TABLE IF EXISTS `#__easydoc_routes`;
+DROP TABLE IF EXISTS `#__easydoc_scans`;
+DROP TABLE IF EXISTS `#__easydoc_tags`;
+DROP TABLE IF EXISTS `#__easydoc_tags_relations`;
+DROP TABLE IF EXISTS `#__easydoc_usergroups`;
+DROP TABLE IF EXISTS `#__easydoc_permissions`;
+DROP TABLE IF EXISTS `#__easydoc_levels`;
+DROP TABLE IF EXISTS `#__easydoc_categories_permissions`;
+DROP TABLE IF EXISTS `#__easydoc_users`;
+DROP TABLE IF EXISTS `#__easydoc_notifications`;
+DROP TABLE IF EXISTS `#__easydoc_emails`;
+

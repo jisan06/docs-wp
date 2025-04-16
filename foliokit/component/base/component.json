@@ -1,0 +1,6 @@
+{
+    "bootstrap": {
+        "identifier": "com:base",
+        "namespace": "EasyDocLabs\\Component\\Base"
+    }
+}

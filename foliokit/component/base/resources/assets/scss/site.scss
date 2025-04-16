@@ -1,0 +1,90 @@
+/* Bootstrap 2.3.2 variables and mixins used in files (Joomla uses old Bootstrap) */
+@import "../../../../../../../../tools/kodekit-ui/src/scss/sass-twitter-bootstrap/variables";
+@import "../../../../../../../../tools/kodekit-ui/src/scss/sass-twitter-bootstrap/mixins";
+
+/* Bootstrap 3.x variables and mixins (select2 bootstrap styling uses BS 3) */
+@import "../../../../../../../../tools/kodekit-ui/node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables";
+@import "../../../../../../../../tools/kodekit-ui/node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
+
+/* Site variables and mixins */
+@import "site/variables";
+@import "../../../../../../../../tools/kodekit-ui/src/scss/site/utilities/variables";
+@import "../../../../../../../../tools/kodekit-ui/src/scss/site/utilities/mixins";
+
+/* Kodekit tools */
+@import "../../../../../../../../tools/kodekit-ui/src/scss/admin/core/tools";
+
+/* Outside of the k-ui-namespace scope */
+@import "../../../../../../../../tools/kodekit-ui/src/scss/site/modal";
+@import "../../../../../../../../tools/kodekit-ui/src/scss/admin/3rdparty/datepicker";
+
+@import "../../../../../../../../tools/kodekit-ui/node_modules/select2/src/scss/core";
+@import "../../../../../../../../tools/kodekit-ui/node_modules/select2-bootstrap-theme/src/select2-bootstrap";
+
+/* Icons */
+@import "../../../../../../../../tools/kodekit-ui/src/scss/admin/generated/k-icons";
+@import "../../../../../../../../tools/kodekit-ui/src/scss/admin/molecules/icon";
+
+/* Tooltips */
+@import "../../../../../../../../tools/kodekit-ui/src/scss/admin/molecules/tooltip";
+
+/* Inside k-ui-namespace scope */
+.k-ui-namespace {
+
+  /* Border-box size everything */
+
+  &, *, *:before, *:after {
+    box-sizing: border-box;
+  }
+
+  /* Responsive tables */
+  @import "../../../../../../../../tools/kodekit-ui/src/scss/admin/3rdparty/footable";
+
+  /* Alerts */
+  @import "../../../../../../../../tools/kodekit-ui/src/scss/admin/molecules/alert";
+
+  /* Pagination */
+  @import "../../../../../../../../tools/kodekit-ui/src/scss/admin/molecules/pagination";
+
+  /* Toolbar */
+  @import "../../../../../../../../tools/kodekit-ui/src/scss/admin/molecules/toolbar";
+
+  /* File select input */
+  @import "../../../../../../../../tools/kodekit-ui/src/scss/admin/molecules/styled-file-input";
+
+  @import "../../../../../../../../tools/kodekit-ui/src/scss/site/anchor";
+  @import "../../../../../../../../tools/kodekit-ui/src/scss/site/header";
+  @import "../../../../../../../../tools/kodekit-ui/src/scss/admin/3rdparty/jqtree";
+  @import "../../../../../../../../tools/kodekit-ui/src/scss/site/select2";
+  @import "../../../../../../../../tools/kodekit-ui/src/scss/site/table";
+  @import "../../../../../../../../tools/kodekit-ui/src/scss/site/toolbar";
+  @import "../../../../../../../../tools/kodekit-ui/src/scss/site/wrapped-content";
+
+  /**
+   * Utilities
+   *
+   * Loading last so we have the biggest chance of 'winning' specificity wars without using !important
+   */
+
+  @import "../../../../../../../../tools/kodekit-ui/src/scss/admin/utilities/dynamic-content-holder";
+  @import "../../../../../../../../tools/kodekit-ui/src/scss/admin/utilities/hidden";
+  @import "../../../../../../../../tools/kodekit-ui/src/scss/admin/molecules/loader";
+  @import "../../../../../../../../tools/kodekit-ui/src/scss/admin/utilities/no-margin";
+  @import "../../../../../../../../tools/kodekit-ui/src/scss/admin/utilities/no-transition";
+  @import "../../../../../../../../tools/kodekit-ui/src/scss/admin/utilities/no-wrap";
+  @import "../../../../../../../../tools/kodekit-ui/src/scss/admin/utilities/visually-hidden";
+  @import "../../../../../../../../tools/kodekit-ui/src/scss/admin/utilities/visually-shown";
+  @import "../../../../../../../../tools/kodekit-ui/src/scss/admin/utilities/ratio-content";
+  @import "../../../../../../../../tools/kodekit-ui/src/scss/admin/utilities/color";
+  @import "../../../../../../../../tools/kodekit-ui/src/scss/admin/utilities/content-block";
+  @import "../../../../../../../../tools/kodekit-ui/src/scss/admin/utilities/position";
+  @import "../../../../../../../../tools/kodekit-ui/src/scss/admin/utilities/flexing";
+  @import "../../../../../../../../tools/kodekit-ui/src/scss/admin/utilities/touchevent";
+  @import "../../../../../../../../tools/kodekit-ui/src/scss/admin/utilities/ellipsis";
+  @import "../../../../../../../../tools/kodekit-ui/src/scss/admin/utilities/coverall";
+  @import "../../../../../../../../tools/kodekit-ui/src/scss/admin/utilities/this-or-that";
+  @import "../../../../../../../../tools/kodekit-ui/src/scss/admin/utilities/component-animation";
+  @import "../../../../../../../../tools/kodekit-ui/src/scss/admin/molecules/hamburger";
+
+	@import "generic/block";
+}

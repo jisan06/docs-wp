@@ -1,0 +1,8 @@
+@import "../../../../../../../../../tools/kodekit-ui/src/scss/admin/molecules/card";
+
+.k-card__header--block {
+	@extend .k-card__header;
+
+	display: flex;
+	align-items: center;
+}

@@ -1,0 +1,121 @@
+/**
+ * Removing spacing between WP sidemenu and component
+ */
+
+#wpcontent {
+  padding-left: 0;
+
+  dd, li {
+    margin-bottom: 0;
+  }
+
+  .k-sidebar-left {
+    @media (prefers-color-scheme: dark) {
+      @include border(left, $k-primary-plus-3-color);
+    }
+
+
+    @include breakpoint($k-sidebar-left-querie-width) {
+      @include allwidth($k-sidebar-left-width);
+    }
+  }
+}
+
+
+
+/**
+ * Flexboxing the wrapper and children
+ */
+
+#wpwrap {
+
+  @include flexboxwp {
+    display: flex;
+    flex: 1 1 auto;
+  }
+
+  #adminmenuback {
+    bottom: 0;
+  }
+
+  #wpcontent {
+    padding-left: 0;
+
+    @include flexboxwp {
+      display: flex;
+      flex: 1 1 auto;
+      height: auto;
+    }
+  }
+
+  #wpbody {
+    @include flexboxwp {
+      display: flex;
+      flex: 1 1 auto;
+      height: auto;
+    }
+  }
+
+  #wpbody-content {
+    .k-ui-container {
+      @media (prefers-color-scheme: dark) {
+        @include border(top, $k-primary-plus-3-color);
+      }
+
+      height: calc(100vh - 32px); // 32px for the menubar
+    }
+
+    padding: 0;
+
+    @include flexboxwp {
+      display: flex;
+      flex: 1 1 auto;
+      overflow: auto;
+      height: auto;
+      float: none;
+    }
+  }
+}
+
+
+// Hide the options on top-right
+#screen-meta {
+  display: none;
+}
+
+#wpfooter {
+  display: none;
+}
+
+// Re-setting the margin that got erased by namepsaced normalize
+.koowa .wp-switch-editor {
+  margin: 5px 0 0 5px;
+}
+
+.k-table-pagination {
+  border-bottom: 1px solid $k-sidebar-border;
+}
+
+
+.k-scopebar.k-scopebar.k-scopebar {
+  overflow: visible; // Scopebar will not be visible without this on desktop
+}
+
+/**
+ * WP Sidebar styling
+ * ==================
+ *
+ * Make sure the WP sidebar stretches all the way to the bottom on mobile
+ * But also make the <html> element 100% high on desktop to enable flexbox layout
+ *
+ * The reason this is located in this file rather then in _backend.scss is because
+ * these changes will get overwritten by the namespaced normalize otherwise.
+ */
+
+html {
+  height: auto;
+
+  @include breakpoint($k-desktop) {
+    height: 100%;
+  }
+}

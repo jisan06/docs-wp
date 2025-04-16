@@ -1,0 +1,7 @@
+{
+    "bootstrap": {
+        "identifier": "com:files",
+        "extends": "com:base",
+        "namespace": "EasyDocLabs\\Component\\Files"
+    }
+}

@@ -1,0 +1,72 @@
+.k-permissions
+{
+  &__header
+  {
+    font-weight: bold !important;
+    text-align: center !important;
+
+    &--action
+    {
+      width: 10%;
+    }
+
+    &--inherit
+    {
+      width: 45%;
+    }
+
+    &--current
+    {
+      width: 45%;
+    }
+  }
+
+  &__label
+  {
+    font-weight: bold !important;
+    text-align: center !important;
+  }
+
+  &__section
+  {
+    font-weight: normal !important;
+    text-align: center !important;
+  }
+}
+
+.select2-option__locked .select2-selection__choice__remove {
+  display: none !important;
+}
+
+.select2-option__locked.select2-selection__choice {
+  background: #cdcdcd !important;
+}
+
+.select2-option
+{
+  &__public, &__public--inherited, &__category_owner
+  {
+    font-weight: bold;
+    color: #3497DA  !important;
+  }
+
+  &__registered, &__registered--inherited, &__document_owner
+  {
+    font-weight: bold;
+    color: #27AE60 !important;
+  }
+
+  &__owner, &__owner--inherited
+  {
+    font-weight: bold;
+    color: #D26E2C !important;
+  }
+
+
+  &__admins, &__admins--inherited
+  {
+    font-weight: bold;
+    color: #f13a3a !important;
+  }
+}
+

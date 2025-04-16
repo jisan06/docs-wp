@@ -1,0 +1,8 @@
+{
+    "version": "1.0.0",
+    "bootstrap" : {
+        "identifier": "com:easydoc",
+        "namespace": "EasyDocLabs\\EasyDoc",
+        "extends": "com:base"
+    }
+}

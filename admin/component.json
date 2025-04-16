@@ -1,0 +1,7 @@
+{
+    "bootstrap" : {
+        "identifier": "com://admin/easydoc",
+        "namespace": "EasyDocLabs\\EasyDoc\\Admin",
+        "extends": "com:easydoc"
+    }
+}

@@ -1,0 +1,7 @@
+// Custom variables and mixins
+@import "generic/variables";
+
+@import "../../../../foliokit/component/base/resources/assets/scss/admin/variables"; // 1
+@import "../../../../foliokit/component/base/resources/assets/scss/admin/mixins"; // 2
+
+@import "../../../kodekit-ui/src/scss/admin-ui";
